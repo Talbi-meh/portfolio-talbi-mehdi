@@ -1,0 +1,291 @@
+/* ==========================================================================
+   1. Variables et Configuration Globale
+   ========================================================================== */
+
+:root {
+    --primary-color: #102542;
+    --secondary-color: #00a6fb;
+    --neon-glow: #00eaff;
+    --bg-color: #f0f4f8;
+    --surface-color: #ffffff;
+    --text-color: #1a1a1a;
+    --text-muted-color: #555;
+    --border-color: #e0e0e0;
+}
+
+[data-theme='dark'] {
+    --primary-color: #cdd6f4;
+    --secondary-color: #00a6fb;
+    --neon-glow: #00eaff;
+    --bg-color: #11111b;
+    --surface-color: #1e1e2e;
+    --text-color: #cdd6f4;
+    --text-muted-color: #a6adc8;
+    --border-color: #313244;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ==========================================================================
+   2. Barre de progression et Bouton "Retour en haut"
+   ========================================================================== */
+
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--secondary-color);
+    width: 0%;
+    z-index: 2000;
+    transition: width 0.1s linear;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--secondary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   3. Navigation (avec menu burger)
+   ========================================================================== */
+
+nav {
+    background-color: var(--surface-color);
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--primary-color);
+    transition: transform 0.3s, color 0.3s;
+}
+nav .logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-extra {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 0;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   4. Section Héros
+   ========================================================================== */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background: radial-gradient(circle, #1a2a3c 0%, #102542 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text { z-index: 1; }
+.hero-text h1 { font-size: 5vw; margin: 0; font-family: 'Roboto Mono', monospace; color: var(--white); text-shadow: 0 0 10px var(--neon-glow), 0 0 20px var(--neon-glow); }
+.hero-text .typing-container { display: inline-block; }
+.typed-text { border-right: .15em solid var(--neon-glow); white-space: nowrap; overflow: hidden; animation: typing 3.5s steps(30, end) forwards, blink-caret .75s step-end infinite; }
+.hero-text p { font-size: 22px; margin-top: 20px; opacity: 0.9; }
+
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--neon-glow); } }
+
+/* Particules (voir JS pour la génération) */
+.particle { position: absolute; border-radius: 50%; background-color: rgba(0, 170, 255, 0.3); animation: float 25s linear infinite; }
+@keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; } 50% { transform: translate(calc(var(--x, 0) * 1px), calc(var(--y, 0) * 1px)) scale(1.5); opacity: 0.1; } }
+
+/* --- Flèche Scroll Down --- */
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    border-left: 3px solid white;
+    border-bottom: 3px solid white;
+    transform: rotate(-45deg);
+    animation: bounce 2s infinite;
+    opacity: 0.7;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) rotate(-45deg);
+    }
+    40% {
+        transform: translateY(-20px) rotate(-45deg);
+    }
+    60% {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+}
+
+
+/* ==========================================================================
+   5. Contenu Principal (Sections)
+   ========================================================================== */
+
+section {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: background-color 0.3s;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 32px;
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    transition: color 0.3s;
+}
+
+/* ==========================================================================
+   6. Sections Spécifiques (Technologies, Compétences, Projets, Contact)
+   ========================================================================== */
+
+/* --- Section Technologies --- */
+#tech-stack { text-align: center; }
+.tech-icons { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+.tech-icons i { font-size: 4rem; transition: transform 0.3s; }
+.tech-icons i:hover { transform: scale(1.2) rotate(5deg); }
+
+/* --- Section Compétences --- */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.skill-card { background: var(--bg-color); padding: 20px; border-radius: 8px; border-left: 4px solid var(--secondary-color); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background-color 0.3s; }
+.skill-card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); border-left-color: var(--neon-glow); }
+.skill-card h3 { margin: 0 0 10px 0; color: var(--primary-color); transition: color 0.3s; }
+.skill-card p { margin: 0; font-size: 15px; line-height: 1.6; }
+
+/* --- Section Projets --- */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.project-card { background-color: var(--bg-color); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; }
+.project-card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+.project-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.project-card-content { padding: 20px; }
+.project-card h3 { margin-top: 0; color: var(--primary-color); transition: color 0.3s; }
+.project-card .stack { font-size: 14px; color: var(--text-muted-color); margin-top: 15px; }
+.project-card a { color: var(--secondary-color); font-weight: bold; text-decoration: none; transition: color 0.3s; }
+.project-card a:hover { color: var(--primary-color); }
+
+/* --- Section Contact --- */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg-color); color: var(--text-color); font-family: 'Outfit', sans-serif; font-size: 16px; transition: background-color 0.3s, border-color 0.3s; box-sizing: border-box;}
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--secondary-color); box-shadow: 0 0 5px var(--secondary-color); }
+.form-actions { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+.button { background-color: var(--secondary-color); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: background-color 0.3s, transform 0.3s; display: inline-block; }
+.button:hover { background-color: #008cde; transform: translateY(-2px); }
+.button-secondary { background: none; border: 2px solid var(--secondary-color); color: var(--secondary-color); }
+.button-secondary:hover { background: var(--secondary-color); color: white; }
+
+/* ==========================================================================
+   7. Footer et Responsive Design
+   ========================================================================== */
+
+footer { text-align: center; color: var(--text-muted-color); padding: 30px 0; font-size: 14px; }
+
+@media (max-width: 768px) {
+    nav { padding: 15px 20px; }
+    .nav-links { position: fixed; right: 0; top: 68px; background-color: var(--surface-color); height: calc(100vh - 68px); width: 60%; flex-direction: column; align-items: center; justify-content: space-around; transform: translateX(100%); transition: transform 0.5s ease-in; box-shadow: -5px 0 15px rgba(0,0,0,0.1); }
+    .nav-links.nav-active { transform: translateX(0%); }
+    .burger { display: block; z-index: 2; }
+    .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+    .toggle .line2 { opacity: 0; }
+    .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+    .hero-text h1 { font-size: 8vw; }
+}

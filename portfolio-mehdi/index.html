@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Mehdi TALBI, développeur web spécialisé dans la création de solutions web innovantes et performantes. Découvrez mes projets et compétences.">
+    
+    <title>Portfolio | TALBI Mehdi</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>MT</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scroll-progress-bar"></div>
+    <a href="#" id="back-to-top" title="Retour en haut">↑</a>
+
+    <nav>
+        <div class="logo" data-aos="fade-down">Mehdi TALBI</div>
+        <ul class="nav-links">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-extra">
+             <button id="theme-toggle" title="Changer de thème">🌗</button>
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-text">
+            <div class="typing-container">
+                <h1 class="typed-text">TALBI Mehdi</h1>
+            </div>
+            <p>Architecte de Solutions Web Innovantes</p>
+        </div>
+        <a href="#about" class="scroll-down-arrow" aria-label="Faire défiler vers la section suivante"></a>
+    </header>
+
+    <main>
+        <section id="about" data-aos="fade-up">
+            <h2>✨ Ma Philosophie</h2>
+            <p>Pour moi, le code est bien plus qu'une discipline ; c'est le langage qui permet de transformer des idées abstraites en solutions numériques concrètes et élégantes. Mon parcours, enrichi par mes études à l'<strong>USTHB</strong> et à l'<strong>Université Gustave Eiffel</strong>, m'a appris à voir chaque projet comme un puzzle à résoudre, où la logique et la créativité doivent s'allier.<br><br>Je conçois des expériences web qui ne sont pas seulement fonctionnelles, mais aussi intuitives et performantes. Ma philosophie repose sur trois piliers : un <strong>code propre et maintenable</strong>, une <strong>conception centrée sur l'utilisateur</strong>, et une <strong>curiosité insatiable</strong> qui me pousse à toujours apprendre. Je cherche aujourd'hui à collaborer avec des équipes qui partagent cette passion pour l'innovation et l'excellence technique.</p>
+        </section>
+
+        <section id="tech-stack" data-aos="fade-up">
+            <h2>🛠️ Technologies favorites</h2>
+            <div class="tech-icons">
+                <i class="devicon-html5-plain-wordmark colored" title="HTML5"></i>
+                <i class="devicon-css3-plain-wordmark colored" title="CSS3"></i>
+                <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+                <i class="devicon-php-plain colored" title="PHP"></i>
+                <i class="devicon-mysql-plain-wordmark colored" title="MySQL"></i>
+                <i class="devicon-python-plain-wordmark colored" title="Python"></i>
+                <i class="devicon-java-plain-wordmark colored" title="Java"></i>
+                <i class="devicon-git-plain-wordmark colored" title="Git"></i>
+            </div>
+        </section>
+
+        <section id="skills" data-aos="fade-up">
+            <h2>📚 Compétences Détaillées</h2>
+            <div class="skills-grid">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100"><h3>HTML / CSS</h3><p>Structuration sémantique, accessibilité, et designs responsives avec Flexbox, Grid et animations.</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="150"><h3>JavaScript</h3><p>Interactivité avancée, manipulation du DOM, requêtes API (Fetch/AJAX), et principes ES6+.</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200"><h3>PHP</h3><p>Logique serveur robuste, gestion des sessions, architecture MVC et interaction avec les BDD.</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="250"><h3>SQL / MySQL</h3><p>Conception de BDD, requêtes complexes, jointures et optimisation des performances.</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300"><h3>Python & Java</h3><p>Algorithmique, résolution de problèmes, scripts d'automatisation et développement back-end.</p></div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="350"><h3>Git & GitHub</h3><p>Gestion de versions collaborative, workflow Git (branches, pull requests) pour le travail d'équipe.</p></div>
+            </div>
+        </section>
+
+        <section id="projects" data-aos="fade-up">
+            <h2>🚀 Mes Projets</h2>
+            <div class="project-grid">
+                <div class="project-card" data-aos="fade-up">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=1964&auto=format&fit=crop" alt="Illustration du projet de système de location de véhicules">
+                    <div class="project-card-content"><h3>Système de location de véhicules</h3><p>Application web complète inspirée de Vélib, avec gestion des réservations, stations, utilisateurs.</p><p class="stack"><strong>Stack :</strong> PHP, MySQL, HTML, CSS</p><a href="https://github.com/Talbi-meh" target="_blank" rel="noopener noreferrer">Voir sur GitHub &rarr;</a></div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Illustration du projet Mini CMS en PHP">
+                    <div class="project-card-content"><h3>Mini CMS en PHP</h3><p>Système d'administration de contenu simple pour créer et modifier des articles.</p><p class="stack"><strong>Stack :</strong> PHP, MySQL, HTML</p><a href="https://github.com/Talbi-meh" target="_blank" rel="noopener noreferrer">Voir sur GitHub &rarr;</a></div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop" alt="Illustration du Script Python d'automatisation">
+                    <div class="project-card-content"><h3>Script Python d'automatisation</h3><p>Script organisant des fichiers par type et date dans des répertoires spécifiques.</p><p class="stack"><strong>Stack :</strong> Python</p><a href="https://github.com/Talbi-meh" target="_blank" rel="noopener noreferrer">Voir sur GitHub &rarr;</a></div>
+                </div>
+                <div class="project-card" data-aos="fade-up">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=2072&auto=format&fit=crop" alt="Illustration de la maquette de site E-commerce">
+                    <div class="project-card-content"><h3>Maquette de site E-commerce</h3><p>Intégration responsive d'une maquette de boutique en ligne avec panier interactif.</p><p class="stack"><strong>Stack :</strong> HTML, CSS, JavaScript</p><a href="https://github.com/Talbi-meh" target="_blank" rel="noopener noreferrer">Voir sur GitHub &rarr;</a></div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1635392233215-3de3814a2928?q=80&w=1974&auto=format&fit=crop" alt="Illustration du gestionnaire de tâches (To-Do App)">
+                    <div class="project-card-content"><h3>Gestionnaire de Tâches</h3><p>Application "To-Do List" avec ajout, modification, suppression et sauvegarde locale.</p><p class="stack"><strong>Stack :</strong> JavaScript, HTML, CSS</p><a href="https://github.com/Talbi-meh" target="_blank" rel="noopener noreferrer">Voir sur GitHub &rarr;</a></div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop" alt="Illustration de la plateforme de Blog complète">
+                    <div class="project-card-content"><h3>Plateforme de Blog Complète</h3><p>Blog full-stack avec panel admin, gestion des articles, catégories et commentaires.</p><p class="stack"><strong>Stack :</strong> PHP, MySQL, JavaScript, HTML/CSS</p><a href="https://github.com/Talbi-meh" target="_blank" rel="noopener noreferrer">Voir sur GitHub &rarr;</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" data-aos="fade-up">
+            <h2>🤙 Parlons de votre projet</h2>
+            <form id="contact-form" action="https://formspree.io/f/mdkdvdkz" method="POST">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="button">Envoyer le message</button>
+                    <a href="cv-talbi-mehdi.pdf" download class="button-secondary">Télécharger mon CV</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TALBI Mehdi – Conçu avec passion</p>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+</body>
+</html>
